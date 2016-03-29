@@ -971,8 +971,9 @@ void LogFileObject::Write(bool force_flush,
     return;
   }
 
+  // 1.增加文件按天区分
   if (static_cast<int>(file_length_ >> 20) >= MaxLogSize() ||
-      PidHasChanged()) {
+      PidHasChanged() || DayHasChanged()) {
     if (file_ != NULL) fclose(file_);
     file_ = NULL;
     file_length_ = bytes_since_flush_ = 0;

@@ -161,6 +161,9 @@ WallTime WallTime_Now();
 int32 GetMainThreadPid();
 bool PidHasChanged();
 
+//1.增加文件按天区分
+bool DayHasChanged();
+
 pid_t GetTID();
 
 const std::string& MyUserName();
